@@ -31,7 +31,7 @@ function alertMessage(summaryObject) {
     if (summary.length > 999){
         let pages = Math.trunc(summary.length / 1000) + 1;
         let firstIndex = 0;
-        let lastIndex = 995; //1 / 2 \n
+        let lastIndex = 995; 
         for(var i = 1; i < pages + 1; i++) {
             alert(i + "/" + pages + "\n" + summary.substring(firstIndex, lastIndex));
             firstIndex = lastIndex;
