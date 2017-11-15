@@ -1,4 +1,3 @@
-console.log("ready to rock and roll")
 chrome.runtime.onMessage.addListener(function(message) {
     if (message.txt === "summarize") {
         let percent = 50;
