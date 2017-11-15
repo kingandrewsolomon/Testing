@@ -31,5 +31,7 @@ function alertMessage(summary) {
             fisrtIndex = lastIndex;
             lastIndex += 995;
         }
+    } else {
+        alert(summary);
     }
 }
