@@ -5,8 +5,7 @@
     "content_scripts": [
         {
             "matches": [
-            "http://*/*",
-            "https://*/*"
+            "*://*/*"
             ],
             "js": [
                 "document_disabbreviation.js", 
