@@ -3,6 +3,7 @@ chrome.runtime.onMessage.addListener(function(message) {
         let percent = 50;
         
         var text = prompt("Enter the text you want summarized", "Null");
+        if(text == null) return;
         alertMessage(EXECUTIVE.administer(text, percent));
         
         let better = confirm("Do you want a better summary?");
@@ -21,14 +22,19 @@ chrome.runtime.onMessage.addListener(function(message) {
     }
 });
 
-function alertMessage(summary) {
-    if (summary.length > 1000){
+function alertMessage(summaryObject) {
+    let summary = '';
+    for(var i = 0; i < summaryObject.length; i++) {
+        summary += summaryObject[i];
+    }
+
+    if (summary.length > 999){
         let pages = Math.trunc(summary.length / 1000) + 1;
         let firstIndex = 0;
         let lastIndex = 995; //1 / 2 \n
         for(var i = 1; i < pages + 1; i++) {
             alert(i + "/" + pages + "\n" + summary.substring(firstIndex, lastIndex));
-            fisrtIndex = lastIndex;
+            firstIndex = lastIndex;
             lastIndex += 995;
         }
     } else {
