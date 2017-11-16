@@ -13,6 +13,7 @@ chrome.runtime.onMessage.addListener(function(message) {
                 alertMessage(EXECUTIVE.administer(text, percent));
                 better = confirm("Do you want a better summary?");
             } else {
+                alertMessage("Sorry can't get any better");
                 better = false;
             }
         }
@@ -24,6 +25,7 @@ chrome.runtime.onMessage.addListener(function(message) {
                 alertMessage(EXECUTIVE.administer(text, percent));
                 worse = confirm("Do you want a smaller summary?");
             } else {
+                alertMessage("Sorry can't get any worse");
                 worse = false;
             }
         }
