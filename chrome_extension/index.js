@@ -9,15 +9,23 @@ chrome.runtime.onMessage.addListener(function(message) {
         let better = confirm("Do you want a better summary?");
         while(better) {
             percent += 10;
-            alertMessage(EXECUTIVE.administer(text, percent));
-            better = confirm("Do you want a better summary?");
+            if(percent < 100) {
+                alertMessage(EXECUTIVE.administer(text, percent));
+                better = confirm("Do you want a better summary?");
+            } else {
+                better = false;
+            }
         }
 
         let worse = confirm("Do you want a smaller summary?");
         while(worse) {
             percent -= 10;
-            alertMessage(EXECUTIVE.administer(text, percent));
-            worse = confirm("Do you want a smaller summary?");
+            if(percent > 0) {
+                alertMessage(EXECUTIVE.administer(text, percent));
+                worse = confirm("Do you want a smaller summary?");
+            } else {
+                worse = false;
+            }
         }
     }
 });
